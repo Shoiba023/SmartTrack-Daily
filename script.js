@@ -42,14 +42,15 @@ function renderTable() {
     totalEarnings += entry.earning;
 
     const row = document.createElement("tr");
-
     row.innerHTML = `
-      <td>${entry.date}</td>
-      <td>${entry.task}</td>
-      <td>${entry.time}</td>
-      <td>$${entry.earning.toFixed(2)}</td>
-      <td>${entry.notes}</td>
-      <td><button onclick="deleteTask(${index})">Delete</button></td>
+      <td data-label="Date">${entry.date}</td>
+      <td data-label="Task">${entry.task}</td>
+      <td data-label="Time">${entry.time}</td>
+      <td data-label="Earning">$${entry.earning.toFixed(2)}</td>
+      <td data-label="Notes">${entry.notes}</td>
+      <td data-label="Action">
+        <button onclick="deleteTask(${index})" style="background:#e74c3c;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Delete</button>
+      </td>
     `;
 
     tbody.appendChild(row);
@@ -73,4 +74,3 @@ function clearAll() {
     renderTable();
   }
 }
-
